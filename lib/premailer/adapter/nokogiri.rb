@@ -209,7 +209,7 @@ class Premailer
           thing = thing.force_encoding(@options[:input_encoding]).encode!
           doc = ::Nokogiri::HTML(thing) {|c| c.recover }
         else
-          default_encoding = RUBY_PLATFORM == 'java' ? nil : 'BINARY'
+          default_encoding = RUBY_PLATFORM == 'java' ? nil : 'UTF-8'
           doc = ::Nokogiri::HTML(thing, nil, @options[:input_encoding] || default_encoding) {|c| c.recover }
         end
 
